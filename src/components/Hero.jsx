@@ -130,7 +130,7 @@ export default function Hero() {
           <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2.5rem] bg-moss/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border-2 border-white/80">
             <img
               src={psychologistImg}
-              alt="Uzman Klinik Psikolog Gülce Yılmaz"
+              alt="Klinik Psikolog Gülce Yılmaz"
               className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-1000 hover:scale-105"
             />
             {/* Fotoğraf içi zarif derinlik gölgesi */}

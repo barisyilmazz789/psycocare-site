@@ -55,7 +55,7 @@ export default function Navbar() {
   }
 
   // İsim animasyonu için kelimeler dizisi
-  const titleWords = ['Uzm.', 'Psk.', 'Gülce', 'Yılmaz']
+  const nameWords = ['Gülce', 'Yılmaz']
 
   return (
     <motion.header
@@ -70,15 +70,15 @@ export default function Navbar() {
         : 'bg-transparent'
         }`}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
-        {/* Logo / Başlık - Harika Giriş Animasyonu Eklenmiş Hali */}
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 md:px-8">
+        {/* Logo / Başlık - Animasyonlu İsim ve Altta Unvan */}
         <Link
           to="/"
           onClick={(e) => handleLinkClick(e, '/')}
-          className="font-serif text-xl tracking-tight text-ink transition hover:text-moss overflow-hidden py-1"
+          className="group transition hover:opacity-80 py-1 flex flex-col"
         >
           <motion.span
-            className="inline-flex flex-wrap gap-x-1.5"
+            className="inline-flex flex-wrap gap-x-1.5 font-serif text-lg md:text-xl tracking-tight text-ink leading-tight"
             initial="hidden"
             animate="show"
             variants={{
@@ -86,17 +86,17 @@ export default function Navbar() {
               show: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 0.08, // Her kelime arasında milisaniyelik gecikme
+                  staggerChildren: 0.08,
                   delayChildren: 0.15,
                 },
               },
             }}
           >
-            {titleWords.map((word, index) => (
+            {nameWords.map((word, index) => (
               <motion.span
                 key={index}
                 variants={{
-                  hidden: { opacity: 0, y: 15, filter: 'blur(4px)' },
+                  hidden: { opacity: 0, y: 12, filter: 'blur(4px)' },
                   show: {
                     opacity: 1,
                     y: 0,
@@ -104,12 +104,20 @@ export default function Navbar() {
                     transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
                   },
                 }}
-                whileHover={{ scale: 1.03 }}
                 className="inline-block"
               >
                 {word}
               </motion.span>
             ))}
+          </motion.span>
+
+          <motion.span
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-[10px] md:text-[11px] font-sans tracking-[0.18em] text-moss uppercase font-medium mt-0.5"
+          >
+            Klinik Psikolog • Çanakkale
           </motion.span>
         </Link>
 
